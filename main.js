@@ -35,21 +35,19 @@ $(document).ready(function() {
     function(){
       // recupera il genere musicale scelto
       var genereScelto = $(this).val();
-      // mostra o nasconde il cd a seconda del genere musicale scelto
+      // nasconde tutti i cd
+      $(".cd").hide();
+      // mostra il cd a seconda del genere musicale scelto
       $(".cd .genre").each(function () {
           if (genereScelto == "All Genres") {
             // ALL GENRES mostra tutti i cd
-            $(this).parent().show();
+            $(this).parent().fadeIn();
           } else if ($(this).text() == genereScelto) {
-            // se l'elemento this in esame ha genere uguale a quello scelto, lo mostra
-            $(this).parent().show();
-          } else {
-            // se l'elemento this in esame ha genere diverso da quello scelto, lo nasconde
-            $(this).parent().hide();
+            // mostra solo i cd del genere scelto
+            $(this).parent().fadeIn();
           }
         }
       );
-
     }
   );
 
