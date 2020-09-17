@@ -4,7 +4,7 @@ $(document).ready(function() {
   // https://flynn.boolean.careers/exercises/api/array/music
   // L'api ci restituirà i dischi musicali che dovremo stampare a schermo con Handlebars.
 
-  // chiamata ajax all'API con endpoint che ritorna i dischi
+  // chiamata ajax all'API con endpoint che ritorna i cd
   $.ajax(
    {
     url: "https://flynn.boolean.careers/exercises/api/array/music",
@@ -30,25 +30,21 @@ $(document).ready(function() {
    }
   );
 
-  // function scegliGenere() {
-  //   var genereScelto = $(".sel-genere").val();
-  //   console.log(genereScelto);
-  // }
-  //
-
-  // al CHANGE del genere musicale scelto
+  // evento CHANGE della SELECT dei generi musicali
   $(".sel-genere").change(
     function(){
-
       // recupera il genere musicale scelto
       var genereScelto = $(this).val();
-      // mostra o nasconde il cd a seconda del genere scelto
+      // mostra o nasconde il cd a seconda del genere musicale scelto
       $(".cd .genre").each(function () {
           if (genereScelto == "All Genres") {
-            $(this).parent().show();          
+            // ALL GENRES mostra tutti i cd
+            $(this).parent().show();
           } else if ($(this).text() == genereScelto) {
+            // se l'elemento this in esame ha genere uguale a quello scelto, lo mostra
             $(this).parent().show();
           } else {
+            // se l'elemento this in esame ha genere diverso da quello scelto, lo nasconde
             $(this).parent().hide();
           }
         }
@@ -56,7 +52,6 @@ $(document).ready(function() {
 
     }
   );
-
 
 
 
