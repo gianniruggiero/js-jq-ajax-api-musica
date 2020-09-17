@@ -10,10 +10,8 @@ $(document).ready(function() {
     url: "https://flynn.boolean.careers/exercises/api/array/music",
     method: "GET",
     success:  function (data, stato) {
-                console.log(data);
                 // recupera i dati dell'oggetto disco che risponde l'API
                 var cd = data.response;
-                console.log(cd.length);
                 for (var i = 0; i < cd.length; i++) {
                   // recupera l'html del template
                   var source = $("#cd-template").html();
@@ -21,17 +19,42 @@ $(document).ready(function() {
                   var template = Handlebars.compile(source);
                   // manipola i fermaposto del template passando l'oggetto cd[i] e crea il codice HTML da iniettare
                   var html = template(cd[i]);
-                  console.log(cd[i]);
-                  console.log("html: " + html);
                   // inietta il codice nell'elemento scelto
                   $(".cds-container").append(html);
                 }
               },
     error: function (richiesta, stato, errore) {
             // messaggio di errore
-            alert("Attenzione, c'è un errore. " + errore);
+            alert("Attenzione, ERRORE!\nTipo errore: " + richiesta.status + " (" + errore + ")");
             }
    }
+  );
+
+  // function scegliGenere() {
+  //   var genereScelto = $(".sel-genere").val();
+  //   console.log(genereScelto);
+  // }
+  //
+
+  // al CHANGE del genere musicale scelto
+  $(".sel-genere").change(
+    function(){
+
+      // recupera il genere musicale scelto
+      var genereScelto = $(this).val();
+      // mostra o nasconde il cd a seconda del genere scelto
+      $(".cd .genre").each(function () {
+          if (genereScelto == "All Genres") {
+            $(this).parent().show();          
+          } else if ($(this).text() == genereScelto) {
+            $(this).parent().show();
+          } else {
+            $(this).parent().hide();
+          }
+        }
+      );
+
+    }
   );
 
 

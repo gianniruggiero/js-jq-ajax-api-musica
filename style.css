@@ -14,6 +14,20 @@ body {
     width: 1070px;
     height: 100%;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container h4 {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.wrap-genre {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
 }
 
 header {
@@ -23,7 +37,11 @@ header {
 }
 header img {
     height: 50px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
+}
+
+.sel-genere {
+  padding: 5px;
 }
 
 .cds-container {
@@ -65,4 +83,8 @@ header img {
 
 .cd span.year {
     color: grey;
+}
+
+.cd span.genre {
+    display: none;
 }
