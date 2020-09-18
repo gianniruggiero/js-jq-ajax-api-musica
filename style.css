@@ -93,10 +93,6 @@ header img {
     color: grey;
 }
 
-.cd span.genre {
-    display: none;
-}
-
 @media only screen and (max-width: 768px) {
   .cd {
       flex-basis: 300px;
